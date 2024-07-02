@@ -3,7 +3,7 @@ import boto3
 from templates import *
 
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 # Initialize the Amazon Comprehend client
 comprehend = boto3.client('comprehend', region_name='ca-central-1')
@@ -26,5 +26,5 @@ def analyze():
     return jsonify(sentiment_scores)
 
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     app.run(debug=True)
